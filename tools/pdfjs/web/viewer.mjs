@@ -9416,7 +9416,7 @@ function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printRe
   scratchCanvas.height = Math.floor(size.height * PRINT_UNITS);
   const ctx = scratchCanvas.getContext("2d");
   ctx.save();
-  ctx.fillStyle = "rgb(255, 255, 255)";
+  ctx.fillStyle = "rgba(255, 255, 255)";
   ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
   ctx.restore();
   return Promise.all([pdfDocument.getPage(pageNumber), printAnnotationStoragePromise]).then(function ([pdfPage, printAnnotationStorage]) {
@@ -9427,6 +9427,7 @@ function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printRe
         scale: 1,
         rotation: size.rotation
       }),
+      background: 'rgba(0,0,0,0)',
       intent: "print",
       annotationMode: pdfjs_lib__WEBPACK_IMPORTED_MODULE_0__.AnnotationMode.ENABLE_STORAGE,
       optionalContentConfigPromise,
