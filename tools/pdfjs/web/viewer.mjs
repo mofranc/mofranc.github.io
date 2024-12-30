@@ -9013,7 +9013,8 @@ class PDFPageView {
       annotationMode: this.#annotationMode,
       optionalContentConfigPromise: this._optionalContentConfigPromise,
       annotationCanvasMap: this._annotationCanvasMap,
-      pageColors
+      pageColors,
+      background: 'rgba(0,0,0,0)'
     };
     const renderTask = this.renderTask = this.pdfPage.render(renderContext);
     renderTask.onContinue = renderContinueCallback;
@@ -9416,7 +9417,7 @@ function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printRe
   scratchCanvas.height = Math.floor(size.height * PRINT_UNITS);
   const ctx = scratchCanvas.getContext("2d");
   ctx.save();
-  ctx.fillStyle = "rgba(255, 255, 255,0)";
+  ctx.fillStyle = "rgb(255, 255, 255)";
   ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
   ctx.restore();
   return Promise.all([pdfDocument.getPage(pageNumber), printAnnotationStoragePromise]).then(function ([pdfPage, printAnnotationStorage]) {
@@ -10695,7 +10696,8 @@ class PDFThumbnailView {
       transform,
       viewport: drawViewport,
       optionalContentConfigPromise: this._optionalContentConfigPromise,
-      pageColors: this.pageColors
+      pageColors: this.pageColors,
+      background: 'rgba(0,0,0,0)'
     };
     const renderTask = this.renderTask = pdfPage.render(renderContext);
     renderTask.onContinue = renderContinueCallback;
