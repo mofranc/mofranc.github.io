@@ -9416,7 +9416,7 @@ function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printRe
   scratchCanvas.height = Math.floor(size.height * PRINT_UNITS);
   const ctx = scratchCanvas.getContext("2d");
   ctx.save();
-  ctx.fillStyle = "rgba(255, 255, 255)";
+  ctx.fillStyle = "rgba(255, 255, 255,0)";
   ctx.fillRect(0, 0, scratchCanvas.width, scratchCanvas.height);
   ctx.restore();
   return Promise.all([pdfDocument.getPage(pageNumber), printAnnotationStoragePromise]).then(function ([pdfPage, printAnnotationStorage]) {
