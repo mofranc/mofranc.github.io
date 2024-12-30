@@ -9014,7 +9014,7 @@ class PDFPageView {
       optionalContentConfigPromise: this._optionalContentConfigPromise,
       annotationCanvasMap: this._annotationCanvasMap,
       pageColors,
-      background: 'rgba(0,0,0,0)'
+      background: 'rgba(255,0,0,255)'
     };
     const renderTask = this.renderTask = this.pdfPage.render(renderContext);
     renderTask.onContinue = renderContinueCallback;
@@ -9428,7 +9428,7 @@ function renderPage(activeServiceOnEntry, pdfDocument, pageNumber, size, printRe
         scale: 1,
         rotation: size.rotation
       }),
-      background: 'rgba(0,0,0,0)',
+      background: 'rgba(255,0,0,255)',
       intent: "print",
       annotationMode: pdfjs_lib__WEBPACK_IMPORTED_MODULE_0__.AnnotationMode.ENABLE_STORAGE,
       optionalContentConfigPromise,
@@ -10697,7 +10697,7 @@ class PDFThumbnailView {
       viewport: drawViewport,
       optionalContentConfigPromise: this._optionalContentConfigPromise,
       pageColors: this.pageColors,
-      background: 'rgba(0,0,0,0)'
+      background: 'rgba(255,0,0,255)'
     };
     const renderTask = this.renderTask = pdfPage.render(renderContext);
     renderTask.onContinue = renderContinueCallback;
